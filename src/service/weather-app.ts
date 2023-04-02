@@ -36,7 +36,6 @@ interface WeatherData {
 
 const getWeatherData = (infoType: string, searchParams: { [key: string]: string | number }) => {
   const url = new URL(BASE_URL + "/" + infoType);
-  console.log(url.search);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY }).toString();
   
   return fetch(url).then((response) => response.json());
